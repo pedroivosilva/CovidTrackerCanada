@@ -7,5 +7,5 @@ in country, in British Columbia and Vancouver metropolitan area.
 It makes usage of api.covid19tracker.ca to retrieve data."""
 
 if __name__ == '__main__':
-    covid_can.print_cases()
-    covid_can.print_fatalities()
+    print("\nThis app makes usage of api.covid19tracker.ca to retrieve all data.\n")
+    covid_can.print_all_table()

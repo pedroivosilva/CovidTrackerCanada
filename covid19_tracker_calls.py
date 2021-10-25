@@ -1,4 +1,5 @@
 import requests
+import prettytable as pt
 
 
 def get_can_summary():
@@ -118,3 +119,24 @@ def print_fatalities():
     print("in Canada: {}".format(tf1))
     print("in BC: {}".format(tf2))
     print("in Vancouver metropolitan area: {}".format(tf3))
+
+
+def print_all_table():
+    """
+    Print all data in a table style.
+    :return:
+    """
+    tc_can, tf_can = get_can_summary()
+    tc_bc, tf_bc = get_bc_summary()
+    tc_yvr, tf_yvr = get_yvr_summary()
+
+    table = pt.PrettyTable()
+    table.field_names = ["Location", "Total Cases", "Total Fatalities"]
+    table.add_rows(
+        [
+            ["Canada", tc_can, tf_can],
+            ["British Columbia", tc_bc, tf_bc],
+            ["Metro Vancouver", tc_yvr, tf_yvr],
+        ]
+    )
+    print(table)
